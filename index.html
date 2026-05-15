@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enum Value Normalizer</title>
+  <meta name="description" content="Deterministic enum value normalization for MCP workflows.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-a: #f8fbff;
+      --bg-b: #eef6f2;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #20303c;
+      --muted: #5f7482;
+      --line: rgba(74, 111, 128, 0.16);
+      --accent: #347f71;
+      --badge: #e6f4ef;
+      --shadow: 0 20px 60px rgba(36, 62, 84, 0.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(150, 204, 187, 0.35), transparent 35%),
+        linear-gradient(160deg, var(--bg-a), var(--bg-b));
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .shell {
+      width: min(1040px, calc(100% - 32px));
+      margin: 32px auto;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--badge);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .hero { padding: 12px 0 24px; }
+    h1, h2 { margin: 0 0 12px; line-height: 1.1; }
+    h1 { font-size: clamp(2.1rem, 4vw, 3.6rem); }
+    h2 { font-size: 1.3rem; }
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .lead {
+      font-size: 1.08rem;
+      max-width: 64ch;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    code, pre {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.95rem;
+    }
+    pre {
+      margin: 0;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f4f8fb;
+      border: 1px solid var(--line);
+      overflow-x: auto;
+      color: var(--text);
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="nav">
+      <div class="badge">READ-ONLY MCP APP</div>
+      <div class="nav-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/health">Health</a>
+      </div>
+    </div>
+    <section class="hero">
+      <h1>Enum Value Normalizer</h1>
+      <p class="lead">This app normalizes a raw free-text value into one of a fixed list of allowed enum values.</p>
+      <p>This tool provides deterministic enum value normalization for workflows that need to pass fixed values into downstream systems.</p>
+      <p>It does not create new enum values, make business decisions, call external systems, or store user data.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <h2>What It Does</h2>
+        <ul>
+          <li>Normalizes free-text values into fixed allowed enum values.</li>
+          <li>Handles simple formatting differences such as case, spaces, underscores, and hyphens.</li>
+          <li>Returns a fixed structured result with normalized_value, is_supported, confidence, status, and error.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>When This Tool Helps</h2>
+        <ul>
+          <li>When a downstream system only accepts fixed enum values.</li>
+          <li>When user text needs to be mapped to one of the allowed options.</li>
+          <li>When a workflow needs deterministic value normalization instead of open-ended interpretation.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>What It Does Not Do</h2>
+        <ul>
+          <li>It does not create new enum values.</li>
+          <li>It does not make business decisions.</li>
+          <li>It does not explain business meaning.</li>
+          <li>It does not call external APIs or store request data.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>MCP Endpoint</h2>
+        <p>The MCP endpoint is <code>POST /mcp</code>. Health is available at <code>GET /health</code>.</p>
+        <pre>{"raw_value":"In Progress","allowed_values":["todo","in_progress","done"]}</pre>
+      </article>
+    </section>
+    <div class="footer">
+      <span>Tool name: <code>normalize_enum_value</code></span>
+      <span>Contact: <a href="mailto:sidcraigau@gmail.com">sidcraigau@gmail.com</a></span>
+    </div>
+  </main>
+</body>
+</html>

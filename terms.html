@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enum Value Normalizer Terms</title>
+  <meta name="description" content="Terms for Enum Value Normalizer.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-a: #f8fbff;
+      --bg-b: #eef6f2;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #20303c;
+      --muted: #5f7482;
+      --line: rgba(74, 111, 128, 0.16);
+      --accent: #347f71;
+      --badge: #e6f4ef;
+      --shadow: 0 20px 60px rgba(36, 62, 84, 0.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(150, 204, 187, 0.35), transparent 35%),
+        linear-gradient(160deg, var(--bg-a), var(--bg-b));
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .shell {
+      width: min(1040px, calc(100% - 32px));
+      margin: 32px auto;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--badge);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .hero { padding: 12px 0 24px; }
+    h1, h2 { margin: 0 0 12px; line-height: 1.1; }
+    h1 { font-size: clamp(2.1rem, 4vw, 3.6rem); }
+    h2 { font-size: 1.3rem; }
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="nav">
+      <div class="badge">TERMS</div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/support">Support</a>
+      </div>
+    </div>
+    <section class="hero">
+      <h1>Enum Value Normalizer Terms</h1>
+      <p>Effective date: 2026-05-15</p>
+      <p>The app is a utility tool for deterministic enum value normalization.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <h2>Use of Service</h2>
+        <ul>
+          <li>Users are responsible for reviewing outputs before relying on them.</li>
+          <li>The app does not guarantee business correctness.</li>
+          <li>The app should not be used as the only validation layer for critical systems.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Boundaries</h2>
+        <ul>
+          <li>The app is not a professional advisor.</li>
+          <li>The app does not provide legal, medical, financial, or other professional advice.</li>
+          <li>The app must not be used for illegal, harmful, or high-risk use cases.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Changes and Contact</h2>
+        <ul>
+          <li>The service may change over time.</li>
+          <li>Contact: <a href="mailto:sidcraigau@gmail.com">sidcraigau@gmail.com</a>.</li>
+        </ul>
+      </article>
+    </section>
+    <div class="footer">
+      <span>Enum Value Normalizer</span>
+      <span><a href="/">Return home</a></span>
+    </div>
+  </main>
+</body>
+</html>
